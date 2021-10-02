@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %} 
+
+<div style="height: 70vh; padding-top:150px">
+  <!-- BLOG BREADCUMB END -->
+  <br/>
+<center>
+<div style="width:400px">
+
+<form action="{% url 'dashboard:login' %}" method="POST" autocomplete="off">
+
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">User Name</label>
+    <input autocomplete="off" type="text" class="form-control form-control-lg" required id="email-address" name="email" placeholder="Enter your username">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input autocomplete="new-password" type="password" class="form-control form-control-lg" required id="password" name="password" placeholder="Enter your password">
+  </div>
+  <br/>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+</div>
+</center>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Rising Star Capital Partners</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">We Are The Leader In Hybrid Loans For Small</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="/dashboard" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Get Started</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+ <!-- ======= About Section ======= -->
+ <section id="about" class="about">
+
+	<div class="container" data-aos="fade-up">
+	  <div class="row gx-0">
+
+		<div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+		  <div class="content">
+			<h3>About Rising Star Capital Partners</h2>
+			<p>
+				At Rising Star Capital Partners we work with businesses of all sizes and have years of experience handling loan structuring. We have many connections, networks, and resources from which to pull the commercial financing you need for whatever reason. Our experienced professionals who have years of lending experience, our credit culture and deep industry experience provides us true insight of middle-market private equity sponsors. Building trusted relationships is a trademark of our business; as a dependable, collaborative partner, we offer unique solutions and deals from start to completion.
+			</p>
+			<div class="text-center text-lg-start">
+			  <a href="/sendesta" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+				<span>Apply now</span>
+				<i class="bi bi-arrow-right"></i>
+			  </a>
+			</div>
+		  </div>
+		</div>
+
+		<div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+		  <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+		</div>
+
+	  </div>
+	</div>
+
+  </section><!-- End About Section -->
+
+
+{% endblock content  %}

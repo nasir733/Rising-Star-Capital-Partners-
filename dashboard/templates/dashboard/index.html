@@ -1,0 +1,54 @@
+{% extends "dashboard/dashboard.html" %} 
+{% load static %}
+{% block content %}
+<div class="nk-content">
+  <div class="container-fluid">
+    <div class="row page-header">
+        <div class="col-lg-6 align-self-center">
+            <h2>Dashboard</h2>
+        </div>
+
+    </div
+    <section class="main-content">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-default">
+                        Account Overview
+                    </div>
+                    <div class="card-body">
+                        <p>Available Credit Limit For Our Products: ${{request.user.credit_line}}</p>
+                        <p>Cash Credit Line: ${{request.user.cash_line_of_credit}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="/dashboard/purchase_products">Purchase
+                            Products</a>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                      <a href="/dashboard/payments" class="btn btn-primary">View Terms +</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+  </div>
+</div>
+{% endblock content %}

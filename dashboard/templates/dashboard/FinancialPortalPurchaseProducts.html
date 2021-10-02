@@ -1,0 +1,77 @@
+{% extends "dashboard/dashboard.html" %} 
+{% load static %}
+{% block content %}
+                        
+<div class="nk-content">
+  <div class="container-fluid">
+    <div class="row page-header">
+        <div class="col-lg-6 align-self-center">
+            <h2>Purchase Products</h2>
+        </div>
+
+      </div>
+    <br/>
+    <section class="main-content">
+      <div class="card card-bordered h-100">
+          <div class="card-inner mb-n2">
+            <div class="card-title-group">
+              <div class="card-title card-title">
+                <h6 class="title"></h6>
+              </div>
+             
+            </div>
+          </div>
+          <div
+            class="nk-tb-list is-loose traffic-channel-table"
+          >
+          <table class="table table-lg">
+              <tr>
+                  <th >Product</th>
+                  {% comment %} <th>Amount</th>
+                  <th>Payments Left</th>
+                  <th>Amount Left</th>
+                  <th>Username</th>
+                  <th>Password</th> {% endcomment %}
+                  <th>Link</th>
+                  <th>Price in Credits</th>
+                  <th>Use Credit Score to buy</th>
+              </tr>
+              {% for product in products %}
+              <tr>
+                  <td>{{product}}</th>
+                  {% comment %} <td>{{product}}</th>
+                  <td>{{product.payments_left}}</th>
+                  <td>{{product.amount_left}}</th>
+                  <td>{{product.username}}</th>
+                  <td>{{product.password}}</th> {% endcomment %}
+                  <td><a href="{{product.link}}">{{product.link}}</a></th>
+                  <td>{{product.price}}</td>
+              
+                  <td>
+                    {% if bank_details %}
+                  <a class="btn btn-primary" href="/dashboard/confirm_purchase/{{product.id}}">Buy</a>
+                    {% else %}
+                    
+                    <span class="d-inline-block" data-toggle="popover" data-content="Add Bank Details">
+                    <button class="btn btn-primary " style="pointer-events: none;" type="button" disabled>Buy</button>
+
+          </span>
+                    {% endif %}
+                  </td>
+              </tr>
+                  
+              {% endfor %}
+  
+            </table>
+            <!-- .nk-tb-item -->
+          </div>
+          <!-- .nk-tb-list -->
+        </div>
+        </div>
+       
+        
+    </section>
+  </div>
+</div>
+
+{% endblock content %}

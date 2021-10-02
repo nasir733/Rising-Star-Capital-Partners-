@@ -1,0 +1,51 @@
+{% extends "dashboard/dashboard.html" %} 
+{% load static %}
+{% block content %}
+    
+<div class="nk-content">
+    <div class="container-fluid">
+      <div class="row page-header">
+          <div class="col-lg-6 align-self-center">
+              <h2>Payments</h2>
+          </div>
+  
+        </div>
+      <br/>
+      <section class="main-content">
+        <div class="card card-bordered h-100">
+            <div class="card-inner mb-n2">
+              <div class="card-title-group">
+                <div class="card-title card-title">
+                  <h6 class="title">Payments</h6>
+                </div>
+               
+              </div>
+            </div>
+            <div
+              class="nk-tb-list is-loose traffic-channel-table"
+            >
+            <table class="table table-lg">
+                <tr>
+                    <th>Amount Left</th>
+                    <th>Payments Left</th>
+                    <th>Terms</th>
+                </tr>
+                <tr>
+                    <td>{{amount_left}}</th>
+                    <td>{{payments_left}}</th>
+                    <td>-</th>
+                </tr>
+    
+              </table>
+              <!-- .nk-tb-item -->
+            </div>
+            <!-- .nk-tb-list -->
+          </div>
+          </div>
+         
+          
+      </section>
+    </div>
+  </div>
+
+{% endblock content %}

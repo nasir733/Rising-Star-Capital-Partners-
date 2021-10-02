@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section id="values" class="values">
+
+	<div class="container" data-aos="fade-up">
+
+	  <header class="section-header">
+		<h2>Services</h2>
+	  </header>
+
+	  <div class="row">
+
+		<div class="col-lg-4">
+		  <div class="box" data-aos="fade-up" data-aos-delay="200">
+			<img src="{% static 'assets/img/values-1.png' %}" class="img-fluid" alt="">
+			<h3>Our Financial Products</h3>
+			<p>Acquire The Financing You <br> Need To Grow <span>Your Business</span></p>
+		  </div>
+		</div>
+
+		<div class="col-lg-4 mt-4 mt-lg-0">
+		  <div class="box" data-aos="fade-up" data-aos-delay="400">
+			<img src="{% static 'assets/img/values-2.png' %}" class="img-fluid" alt="">
+			<h3>Hybrid Loans</h3>
+			<p>With A Hybrid Loan Your Business Can Get The Cash Line Of Credit It Needs With The Ability To Also Acquire
+				Services At A Discount That Your Business Needs To Expand As Well.</p>
+		  </div>
+		</div>
+
+		<div class="col-lg-4 mt-4 mt-lg-0">
+		  <div class="box" data-aos="fade-up" data-aos-delay="600">
+			<img src="{% static 'assets/img/values-3.png' %}" class="img-fluid" alt="">
+			<h3>Traditional <br> Lines Of Credit</h3>
+			<p>A Traditional Line Of Credit Helps Your Business Get The Capital It Needs For Expansion. Only Pay Interest
+				On The Capital Your Business Uses.</p>
+		  </div>
+		</div>
+
+	  </div>
+
+	</div>
+
+  </section><!-- End Values Section -->
+
+{% endblock content %}

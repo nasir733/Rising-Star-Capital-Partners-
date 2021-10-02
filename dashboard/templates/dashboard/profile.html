@@ -1,0 +1,62 @@
+{% extends "dashboard/dashboard.html" %} {% load static %} {% block content %}
+{% load crispy_forms_tags %}
+
+<div class="nk-content">
+  <div class="container-fluid">
+    {% if user_form %}
+    <div class="form-content">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ user_form | crispy }}
+        <br /><br />
+        <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+        
+      </form>
+    </div>
+    {% else %}
+    <section class="main-content">
+        <div class="card card-bordered h-100">
+            <div class="card-inner mb-n2">
+              <div class="card-title-group">
+                <div class="card-title card-title">
+                  <h3 class="title">Profile</h3>
+                </div>
+               
+              </div>
+            </div>
+            <div
+              class="nk-tb-list is-loose traffic-channel-table"
+            >
+            <table class="table table-lg">
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Bank Name</th>
+                    <th>Bank Account Number</th>
+                    <th>Bank Routing</th>
+
+                </tr>
+                <tr>
+                    <td>{{profile.username}}</th>
+                    <td>{{profile.email}}</th>
+                    <td>{{profile.bank_name}}</th>
+                    <td>{{profile.bank_account_number}}</th>
+                    <td>{{profile.bank_routing_number}}</th>
+                </tr>
+    
+              </table>
+              <!-- .nk-tb-item -->
+            </div>
+            <!-- .nk-tb-list -->
+          </div>
+          </div>
+         
+          
+      </section>
+
+    <br />
+    <a href="{% url 'dashboard:update-profile' %}" class="btn btn-dark btn-sm"
+      >UPDATE Profile</a
+    >. {% endif %}
+  </div>
+</div>
+{% endblock content %}
