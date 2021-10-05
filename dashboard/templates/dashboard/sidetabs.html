@@ -16,22 +16,35 @@
       <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
       <div id="mainnav">           
         <ul class="nav-menu custom-scrollbar">
-          <li class="back-btn">
-            <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
-          </li>
+          <li class="nav-header">
+            <div class="dropdown profile-element">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="clear">
+                  <span class="block m-t-xs"><strong class="font-bold">{{request.user.username}}</strong></span>
+                  <span class="text-muted text-xs block">{{request.user.email}}<b class="caret"></b></span>
+                </span>
+              </a>
+              <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                <li><a class="dropdown-item" href="{% url "dashboard:update-profile" %}">Profile</a></li>
+                <li><a class="dropdown-item" href="{% url "dashboard:logout" %}">Logout</a></li>
+              </ul>
+            </div>
+            <div class="logo-element">
+              <img src="{% static 'dashboard/assets/images/logo-icon.png' %}" alt="">
+            </div>
          
          
          
       
           <li class="sidebar-main-title">
             <div>
-              <h6>Pages             </h6>
+              <h6>Dashboard        </h6>
             </div>
           </li>
           <li><a class="nav-link menu-title link-nav" href="{% url 'dashboard:home' %}"><i data-feather="navigation-2"></i><span>Dashboard</span></a></li>
-          <li><a class="nav-link menu-title link-nav" href="{% url 'dashboard:purchase-products' %}"><i data-feather="file"></i><span>Purchase Products</span></a></li>
-          <li class="dropdown"><a class="nav-link menu-title link-nav" href="{% url 'dashboard:payments' %}"><i data-feather="aperture"></i><span>Payments</span></a></li>
-          <li class="dropdown"><a class="nav-link menu-title link-nav" href="{% url 'dashboard:products-access' %}"><i data-feather="anchor"></i><span>Access Software</span></a></li>
+          <li><a class="nav-link menu-title link-nav" href="{% url 'dashboard:purchase-products' %}"><i data-feather="file"></i><span>Purchase Cloud Software Products</span></a></li>
+          <li ><a class="nav-link menu-title link-nav" href="{% url 'dashboard:payments' %}"><i data-feather="aperture"></i><span>Payments</span></a></li>
+          <li "><a class="nav-link menu-title link-nav" href="{% url 'dashboard:products-access' %}"><i data-feather="anchor"></i><span>Access Cloud Software Products</span></a></li>
           
           
         </ul>

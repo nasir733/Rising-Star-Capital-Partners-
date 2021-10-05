@@ -6,7 +6,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="/" class="logo d-flex align-items-center">
-        <img src="{% static 'dashboard/assets/images/logo.png' %}" alt="">
+        <img src="{% static 'dashboard/assets/images/logo.png' %}" width="50" height="200" style="transform: scale(2.5);" alt="">
         <span style="font-size: 1rem;">Rising Star Capital Partners</span>
       </a>
 
@@ -15,13 +15,21 @@
           <li><a href="/">Home</a></li>
           <li><a href="{% url 'about' %}">About Us</a></li>
           <li><a href="{% url 'case_studies' %}">Case Studies</a></li>
-          <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
           <li><a href="{% url 'services' %}">Services</a></li>
           <li><a href="{% url 'contact' %}">Contact us</a></li>
-          <li><a href="{% url 'sendesta' %}">Sendesta</a></li>
+          <li class="dropdown"><a href="#"><span>Business Credit Bureaus</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'sendesta' %}">Sendesta</a></li>
+            
+              <li><a href="#">Dun</a></li>
+              <li><a href="#">Bradstreet</a></li>
+              <li><a href="#">Ziteso</a></li>
+              <li><a href="#">Vudoke</a></li>
+            </ul>
+          </li>
           {% if user.is_authenticated %}
 					
-          <li>	<a href="{% url 'dashboard:logout' %}">Logout</a> </li>
+          <li>	<a href="{% url 'dashboard:logout' %}" class="getstarted scrollto">Logout</a> </li>
           {% else %}
           <li><a href="{% url 'dashboard:login' %}">Login</a></li>
           <li><a href="{% url 'dashboard:register' %}" class="getstarted scrollto">Sign Up</a></li>
