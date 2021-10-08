@@ -3,6 +3,7 @@ from .forms import ContactForm
 # Create your views here.
 from django.contrib import messages
 
+
 def about(request):
     if request.user.is_authenticated:
         messages.info(request, 'You have been already logged in')
@@ -43,6 +44,27 @@ def sendesta(request):
         messages.info(request, 'You have been already logged in')
         return redirect('dashboard:home')
     return render(request, 'sendesta.html', {})
+
+
+def vukode(request):
+    if request.user.is_authenticated:
+        messages.info(request, 'You have been already logged in')
+        return redirect('dashboard:home')
+    return render(request, 'vukode.html', {})
+
+
+def ziteso(request):
+    if request.user.is_authenticated:
+        messages.info(request, 'You have been already logged in')
+        return redirect('dashboard:home')
+    return render(request, 'ziteso.html', {})
+
+
+def bradstreet(request):
+    if request.user.is_authenticated:
+        messages.info(request, 'You have been already logged in')
+        return redirect('dashboard:home')
+    return render(request, 'bradstreet.html', {})
 
 
 def services(request):

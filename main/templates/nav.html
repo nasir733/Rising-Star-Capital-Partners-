@@ -21,9 +21,9 @@
             <ul>
               <li><a href="{% url 'sendesta' %}">Sendesta</a></li>
             
-              <li><a href="#">Dun & Bradstreet</a></li>
-              <li><a href="#">Ziteso</a></li>
-              <li><a href="#">Vudoke</a></li>
+              <li><a href="{% url 'bradstreet' %}">Dun & Bradstreet</a></li>
+              <li><a href="{% url 'ziteso' %}">Ziteso</a></li>
+              <li><a href="{% url 'vukode' %}">Vukode</a></li>
             </ul>
           </li>
           {% if user.is_authenticated %}
