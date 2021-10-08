@@ -99,9 +99,13 @@ def register(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
-
+        business_address = request.POST.get(
+            'business_address'
+        )
+        business_name = request.POST.get('business_name')
         print(password, 'password =============')
         user_created = User.objects.create_user(username=username, email=email, password=password,
+                                                business_address=business_address, business_name=business_name
                                                 )
         user = authenticate(
             username=username, password=password)

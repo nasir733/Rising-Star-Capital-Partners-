@@ -15,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (
             (('User'), {
-                'fields': ('username', 'password', 'email')
+                'fields': ('username', 'password', 'email', 'business_name', 'business_address', 'ein_number')
             }),
             (('Payment'), {
                 'fields': ('bank_name', 'bank_account_number', 'bank_routing_number', 'voided_check_or_direct_deposit_form', 'credit_line', 'cash_line_of_credit', 'total_line_of_credit',)
