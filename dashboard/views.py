@@ -249,6 +249,8 @@ def apply_for_loan(request, step):
             d_form = LoanApplicationForm(request.POST, instance=request.user)
             print("p")
             print(d_form.errors)
+            messages.warning(
+                request, d_form.errors)
             if d_form.is_valid():
                 print(d_form.cleaned_data)
                 d_form.save()
