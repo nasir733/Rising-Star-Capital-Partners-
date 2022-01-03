@@ -14,6 +14,7 @@ import json
 from pprint import pprint
 from icecream import ic
 from django.contrib.auth import get_user_model
+import datetime
 
 User = get_user_model()
 
@@ -187,6 +188,8 @@ def CreateloansubscriptionSucess(request, plan_id):
     loan_plan = ApplyLoanPlan.objects.get(id=plan_id)
     request.user.loan_subscription_added = True
     request.user.loan_subscription_type = loan_plan
+    request.user.loan_subscription_added_date = datetime.datetime.now()
+
     request.user.save()
     return redirect('dashboard:home')
 

@@ -1,7 +1,7 @@
 {% extends 'dashboard/dashboard.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-
+{% load mathfilters %}
 {% block content %}
 <script src="https://js.stripe.com/v3/"></script>
 <!-- new -->
@@ -51,7 +51,7 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
           <h3>{{x.price}}$ / {{x.duration}} months</h3>
           <br/>
           <button class="btn btn-primary" href="" onclick="SubscriptionSubmit('{{x.id}}')">
-            Add Subscription {{x.price}}$</button>
+            Add Subscription {{x.price | div:x.duration |floatformat:0}}$ /month</button>
           </div>
         </div>
       </div>

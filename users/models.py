@@ -36,6 +36,8 @@ class CustomUser(AbstractUser):
         default=False, blank=True, null=True)
     loan_subscription_added =models.BooleanField(
         default=False, blank=True, null=True)
+    loan_subscription_added_date = models.DateTimeField(
+        blank=True, null=True)
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()

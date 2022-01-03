@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'dashboard',
     'users',
     'crispy_forms',
+    'mathfilters',
 
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
