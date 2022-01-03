@@ -1,0 +1,396 @@
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500');
+    
+ @import url('https://fonts.googleapis.com/css?family=Khula:800');
+ * {
+	 margin: 0;
+	 padding: 0;
+}
+ #main-container {
+	 /* background: #353649;
+	 background: -moz-linear-gradient(45deg, #353649 0%, #f7a0d9 100%);
+	 background: -webkit-linear-gradient(45deg, #353649 0%, #f7a0d9 100%);
+	 background: linear-gradient(45deg, #353649 0%, #f7a0d9 100%); */
+	 color: white;
+	 font-family: 'Open Sans', sans-serif;
+	 overflow: hidden;
+	 padding: 50px 0;
+	 width: 100%;
+}
+ @media (max-width: 767.98px) {
+	 #main-container {
+		 padding: 14px 0;
+	}
+}
+ #main-container .container {
+	 background: #252634;
+	 background: -moz-linear-gradient(45deg, #252634 0%, #7578a8 100%);
+	 background: -webkit-linear-gradient(45deg, #252634 0%, #7578a8 100%);
+	 background: linear-gradient(45deg, #252634 0%, #7578a8 100%);
+	 border-radius: 10px;
+	 box-sizing: border-box;
+	 display: flex;
+	 flex-direction: column;
+	 margin: 0px auto;
+	 max-width: 80vw;
+	 padding: 25px 40px 25px;
+	 position: relative;
+}
+ @media (max-width: 767.98px) {
+	 #main-container .container {
+		 max-width: 92vw;
+		 padding: 0px 10px 0px;
+	}
+}
+ #main-container .container h1 {
+	 font-size: 27px;
+	 font-weight: 400;
+	 margin: 30px 0 20px;
+	 padding: 0 20px;
+}
+ .intro {
+	 display: flex;
+	 flex-wrap: wrap;
+}
+ .intro .box-text {
+	 box-sizing: border-box;
+	 flex-grow: 2;
+	 padding: 0 20px;
+}
+ .intro .box-text p {
+	 font-size: 15px;
+	 font-weight: 300;
+	 line-height: 28px;
+}
+ @media (max-width: 991.98px) {
+	 .intro .box-text p {
+		 margin-bottom: 20px;
+	}
+}
+ .intro .box-button {
+	 align-self: center;
+	 flex-grow: 1;
+	 margin: 0 20px;
+	 text-align: right;
+	 text-transform: uppercase;
+}
+ .intro .box-button a {
+	 background-color: #4f4c79;
+	 border-radius: 20px;
+	 color: white;
+	 font-size: 14px;
+	 letter-spacing: 0.4px;
+	 white-space: nowrap;
+	 padding: 10px 30px;
+	 text-decoration: none;
+}
+ .boxes {
+	 display: flex;
+	 flex-wrap: wrap;
+	 margin: 60px 0 40px;
+	/*BLUE BOX*/
+	/*PINK BOX*/
+	/*YELLOW BOX*/
+}
+ .boxes .box {
+	 border-radius: 10px;
+	 box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.2);
+	 box-sizing: border-box;
+	 cursor: pointer;
+	 display: flex;
+	 flex: 1;
+	 flex-basis: 260px;
+	 height: auto;
+	 margin: 0 15px;
+	 min-height: 350px;
+	 padding: 0px 45px 20px;
+	 position: relative;
+	 text-align: center;
+	 transition: transform 0.2s;
+}
+ .boxes .box:hover {
+	 -ms-transform: scale(1.22);
+	/* IE 9 */
+	 -webkit-transform: scale(1.22);
+	/*Safari 3-8*/
+	 transform: scale(1.22);
+	 z-index: 999;
+}
+ @media (max-width: 991.98px) {
+	 .boxes .box {
+		 margin-bottom: 20px;
+		 padding: 0px 20px 20px;
+	}
+}
+ .boxes .box-content {
+	 display: flex;
+	 flex-direction: column;
+	 flex-grow: 1;
+	 z-index: 2;
+}
+ .boxes .box .button {
+	 background: white;
+	 border-radius: 50px;
+	 border: none;
+	 box-shadow: 0px 12px 20px 3px rgba(0, 0, 0, 0.2);
+	 color: #c6c6c6;
+	 display: table;
+	 font-family: 'Open Sans', sans-serif;
+	 font-weight: bold;
+	 margin-bottom: 20px;
+	 margin-top: auto;
+	 padding: 20px 0 20px 0;
+	 position: relative;
+	 text-decoration: none;
+	 transition: all 0.25s linear;
+	 width: 100%;
+}
+ .boxes .box .button:hover {
+	 box-shadow: none;
+	 color: #4f4c79;
+}
+ .boxes .box .button span {
+	 background: none;
+	 display: table-cell;
+	 font-size: 14px !important;
+	 text-align: right;
+	 vertical-align: middle;
+	 width: 59%;
+	 z-index: 6;
+}
+ .boxes .box .button .material-icons {
+	 display: table-cell;
+	 font-size: 14px;
+	 padding-left: 8px;
+	 padding-top: 2px;
+	 vertical-align: middle;
+	 text-align: left;
+	 width: 50%;
+}
+ .boxes .blue, .boxes .pink, .boxes .yellow {
+	 position: relative;
+}
+ .boxes .blue h2, .boxes .pink h2, .boxes .yellow h2 {
+	 font-family: 'Open Sans', sans-serif;
+	 font-weight: 400;
+	 margin: 30px 0;
+	 padding-bottom: 10px;
+	 position: relative;
+}
+ .boxes .blue h2:after, .boxes .pink h2:after, .boxes .yellow h2:after {
+	 background: white;
+	 border-radius: 25%;
+	 bottom: 0;
+	 content: '';
+	 height: 3px;
+	 left: calc(50% - 7.5px);
+	 position: absolute;
+	 width: 15px;
+}
+ .boxes .blue .number-bg, .boxes .pink .number-bg, .boxes .yellow .number-bg {
+	 bottom: 0;
+	 color: white;
+	 font-size: 295px;
+	 font-family: 'Khula', sans-serif;
+	 font-weight: 800;
+	 left: 0;
+	 opacity: 0.1;
+	 position: absolute;
+	 right: 0;
+	 top: 0;
+	 z-index: 1;
+}
+ .boxes .blue .number-bg:before, .boxes .pink .number-bg:before, .boxes .yellow .number-bg:before {
+	 content: '$';
+	 font-size: 32px;
+	 left: calc(50% - 22%);
+	 position: absolute;
+	 top: 65px;
+}
+ .boxes .blue {
+	 background: #5967c3;
+	 background: -moz-linear-gradient(-45deg, #5967c3 0%, #70b9c1 100%);
+	 background: -webkit-linear-gradient(-45deg, #5967c3 0%, #70b9c1 100%);
+	 background: linear-gradient(-45deg, #5967c3 0%, #70b9c1 100%);
+}
+ .boxes .blue p {
+	 color: white;
+	 margin: 0 10px;
+	 text-align: left;
+}
+ .boxes .blue .first-bar, .boxes .blue .second-bar {
+	 background: rgba(0, 0, 0, 0.1);
+	 border-radius: 20px;
+	 display: block;
+	 height: 20px;
+	 margin: 15px 10px 35px 10px;
+	 position: relative;
+	 width: auto;
+}
+ .boxes .blue .first-bar:after, .boxes .blue .second-bar:after {
+	 border-radius: 20px;
+	 content: '';
+	 height: 20px;
+	 left: 0;
+	 position: absolute;
+	 z-index: 2;
+}
+ .boxes .blue .first-bar:after {
+	 background: #f56cd1;
+	 background: -moz-linear-gradient(-45deg, #fd8ba6 0%, #bd88ec 100%);
+	 background: -webkit-linear-gradient(-45deg, #fd8ba6 0%, #bd88ec 100%);
+	 background: linear-gradient(-45deg, #fd8ba6 0%, #bd88ec 100%);
+	 width: 80%;
+}
+ .boxes .blue .second-bar:after {
+	 background: #ffd98a;
+	 background: -moz-linear-gradient(-45deg, #e26f4c 0%, #dcc185 100%);
+	 background: -webkit-linear-gradient(-45deg, #e26f4c 0%, #dcc185 100%);
+	 background: linear-gradient(-45deg, #e26f4c 0%, #dcc185 100%);
+	 width: 50%;
+}
+ .boxes .pink {
+	 background: #fd8ba6;
+	 background: -moz-linear-gradient(-45deg, #fd8ba6 0%, #bd88ec 100%);
+	 background: -webkit-linear-gradient(-45deg, #fd8ba6 0%, #bd88ec 100%);
+	 background: linear-gradient(-45deg, #fd8ba6 0%, #bd88ec 100%);
+}
+ .boxes .yellow {
+	 background: #e26f4c;
+	 background: -moz-linear-gradient(-45deg, #e26f4c 0%, #dcc185 100%);
+	 background: -webkit-linear-gradient(-45deg, #e26f4c 0%, #dcc185 100%);
+	 background: linear-gradient(-45deg, #e26f4c 0%, #dcc185 100%);
+}
+ @media (max-width: 1199.98px) {
+	 .boxes .yellow {
+		 margin-top: 20px;
+	}
+}
+ @media (max-width: 1199.98px) {
+	 .boxes .yellow:hover {
+		 -ms-transform: scale(1.12);
+		/* IE 9 */
+		 -webkit-transform: scale(1.12);
+		/*Safari 3-8*/
+		 transform: scale(1.12);
+	}
+}
+ .boxes .pink h4, .boxes .yellow h4 {
+	 font-size: 16px;
+	 font-weight: 400;
+	 margin-top: auto;
+}
+ .boxes .pink h3, .boxes .yellow h3 {
+	 font-family: 'Open Sans', sans-serif;
+	 font-size: 40px;
+	 font-weight: bold;
+}
+ 
+</style>
+<div id="main-container">
+	<div class="container">
+	  <h1>Apply for the Loan</h1>
+	  <section class="intro">
+		<div class="box-text">
+			{% comment %} <p>Choose your desired plan to get access to our contents easily, we like to offer special <br> promotions to our users. Read the details.</p>{% endcomment %}
+		</div>
+		<!-- <div class="box-button"><a href="javascript:void(0)">More details</a></div> -->
+	  </section>
+	  <section class="boxes">
+		<div class="box blue">
+		  <div class="number-bg"> </div>
+		  <div class="box-content">
+			<h2>Basic</h2>
+            <h3>$500 - $2500</h3>
+            <h4>12 Months</h4>
+			<a class="button" href="{% url 'dashboard:apply_for_loan' step="basic" %}">
+			  <div class="expanded"></div><span>Continue </span><i class="material-icons">arrow_forward</i></a>
+		  </div>
+		</div>
+		<div class="box pink">
+		  <div class="number-bg"> </div>
+		  <div class="box-content">
+			<h2>Standard</h2>
+			<h3>$5000 - $10,000</h3>
+			 <h4>24 Months</h4>
+			 <a class="button" href="{% url 'dashboard:apply_for_loan' step="standard" %}">
+				<div class="expanded"></div><span>Continue </span><i class="material-icons">arrow_forward</i></a>
+		  </div>
+		</div>
+
+
+		<div class="box yellow">
+		  <div class="number-bg"> </div>
+		  <div class="box-content">
+			<h2>Premium</h2>
+            
+            <h3>$10,000 +</h3>
+            <h4>36 Months</h4>
+            <a class="button" href="{% url 'dashboard:apply_for_loan' step="premium" %}" ><span>Continue </span><i class="material-icons">arrow_forward</i></a>
+		  </div>
+		</div>
+
+	  </section>
+	</div>
+  </div>
+<!-- <div id="main-container">
+    <div class="container">
+      <h1>Apply for the Loan</h1>
+      <section class="intro">
+        <div class="box-text">
+          {% comment %} <p>Choose your desired plan to get access to our contents easily, we like to offer special <br> promotions to our users. Read the details.</p> {% endcomment %}
+        </div>
+
+      </section>
+      <section class="boxes">
+		<form method="POST" action="{% url 'dashboard:apply_for_loan' step=2 %}" id="form1">
+            {% csrf_token %}
+			<input name='plan' value="Basic" hidden>
+
+			<div class="box blue">
+          <div class="number-bg"></div>
+          <div class="box-content">
+            <h2>Basic</h2>
+            <h3>$500 - $2500</h3>
+            <h4>12 Months</h4>
+<a class="button" href="javascript:{}" onclick="document.getElementById('form1').submit();">
+              <div class="expanded"></div><span>Continue </span><i class="material-icons">arrow_forward</i></a>
+          </div>
+        </div>
+	</form>
+	<form method="POST" action='{% url 'dashboard:apply_for_loan' step=2 %}' id ="form2">
+        {% csrf_token %}
+		<input name='plan' value="Standard" hidden>
+        <div class="box pink">
+          <div class="number-bg"></div>
+          <div class="box-content">
+            <h2>Standard</h2>
+           <h3>$5000 - $10,000</h3>
+            <h4>24 Months</h4>
+            <a class="submit" href="javascript:{}" onclick="document.getElementById('form2').submit();">
+				<span>Continue </span><i class="material-icons">arrow_forward</i></a>
+			</div>
+        </div>
+	</form>
+	<form method="POST" action='{% url 'dashboard:apply_for_loan' step=2 %}' id="form3">
+        {% csrf_token %}
+        <input name='plan' value="Premium" hidden>
+        <div class="box yellow">
+          <div class="number-bg"></div>
+          <div class="box-content">
+            <h2>Premium</h2>
+            
+            <h3>$10,000 +</h3>
+            <h4>36 Months</h4>
+            <a class="button" href="javascript:{}" onclick="document.getElementById('form3').submit();"><span>Continue </span><i class="material-icons">arrow_forward</i></a>
+          </div>
+        </div>
+	</form>
+
+
+
+      </section>
+    </div>
+  </div> -->
+

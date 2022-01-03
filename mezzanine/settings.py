@@ -17,7 +17,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+APPEND_SLASH = False
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -153,3 +153,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL = "/media/"
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 django_heroku.settings(locals())
+
+# LIVE KEYS
+# STRIPE_SECRET_KEY="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"
+# STRIPE_PUBLISHABLE_KEY= "pk_live_51JXU1sJtDhAmrBJDgImxOEb35OhxnTuYSASsfol7xaDFFm2MfgCZOpsICDTgY5le9AdtnJ8JIkugKcCGqtxFJydz00VPli5F8E"
+# STRIPE_ENDPOINT_SECRET ="whsec_K1O4f3EStNqstMuh5v7dAQMXvm2nCibX"
+
+# TEST KEYS
+STRIPE_SECRET_KEY = "sk_test_51JXU1sJtDhAmrBJD6tcH7pqwEYaDn264D0ttkpLQHKUI7giEkM9B2Btlt8QfXEyQwShJhv971EAg4CArAYu6vTp100IUWZZCdH"
+STRIPE_PUBLISHABLE_KEY = "pk_test_51JXU1sJtDhAmrBJDin3SlmgUXHJqXpzKHzNyyLR0cThQ5HScrLBIqvQOWjgp8cHvp4fgN234Voij9L8OuGYhlOR0002bZBFNC6"
+STRIPE_ENDPOINT_SECRET = "whsec_K1O4f3EStNqstMuh5v7dAQMXvm2nCibX"
+# local environment
+# STRIPE_ENDPOINT_SECRET = "whsec_V55Pasa3RbsKnKo2YHAY7LtuH7kqI9x3"

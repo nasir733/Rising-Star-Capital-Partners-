@@ -18,6 +18,18 @@ urlpatterns = [
     path('team/', views.team, name='team'),
     path('testimonial/', views.testimonial, name='testimonial'),
     path('__debug__/', include(debug_toolbar.urls)),
+     path("config/", views.stripe_config),
+    path("create-checkout-session-loan-origin-fee/<int:plan_id>/",
+         views.Createloanoriginfeesession, name="create-checkout-session-loan-origin-fee"),
+     path("create-checkout-session-subscription/<int:plan_id>/",
+         views.Createloansubcriptionsession, name="create-checkout-session-loan-origin-fee"),
+    path("success-loan-origin-fee/<int:plan_id>/", views.CreateloanoriginfeesessionSucess,
+         name="success-loan-origin-fee"),
+         
+     path("success-loan-subscription/<int:plan_id>/", views.CreateloansubscriptionSucess,
+         name="success-loan-subscription"),
+    path("webhook", views.webhook, name="webhook"),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

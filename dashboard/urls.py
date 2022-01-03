@@ -25,5 +25,11 @@ urlpatterns = [
     path('access_software', login_required(FinancingPortalAccessSoftware.as_view(
     ), login_url='/user/login'), name='products-access'),
     path('confirm_purchase/<int:pk>', login_required(
-        FinancingPortalConfirmPurchaseView.as_view()), name="confirm-purchase")
+        FinancingPortalConfirmPurchaseView.as_view()), name="confirm-purchase"),
+    path('plans/', login_required(views.plans,
+         login_url='/user/login'), name='plans'),
+    path('apply_for_loan/<str:step>', apply_for_loan, name='apply_for_loan'),
+
+   
+
 ]

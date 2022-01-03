@@ -61,3 +61,17 @@ class ProductPurchasedModel(models.Model):
 
     def __str__(self):
         return f"{self.product.name} {self.user}"
+
+
+class ApplyLoanPlan(models.Model):
+    name=models.CharField(blank=True, null=True, max_length=120)
+    loan_type=models.CharField(blank=True, null=True, max_length=120)
+    price = models.CharField(blank=True, null=True, max_length=120)
+    subscription_stripe_id = models.CharField(max_length=150)
+    origin_fee_stripe_id = models.CharField(max_length=150)
+    origin_fee =models.CharField(blank=True, null=True, max_length=120)
+    aproved_loan_amount =models.CharField(blank=True, null=True, max_length=120)
+    duration = models.CharField(blank=True, null=True, max_length=120)
+    def __str__(self):
+        return "{} {}$ {}/months".format(self.name,self.price,self.duration)
+

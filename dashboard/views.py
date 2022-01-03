@@ -8,11 +8,17 @@ from django.http import HttpResponse
 from django.views import View
 from django.views.generic import TemplateView
 
-from .models import ProductPurchasedModel, Product, ProductModel
+from .models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from users.forms import CustomUpdateUserForm
 from django.contrib.auth import get_user_model
+from django.utils.safestring import mark_safe
+from .forms import LoanApplicationForm
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http.response import JsonResponse
+
 User = get_user_model()
 
 
@@ -40,15 +46,21 @@ def profile_update(request):
 
 
 @login_required
+def plans(request):
+    if request.method == "GET":
+        return render(request, 'dashboard/plans.html')
+
+
+@login_required
 def dashboard(request):
 
     print('from index.html')
     user = request.user
-    if user.bank_name == "" or user.bank_routing_number == "" or user.bank_account_number == "" or user.voided_check_or_direct_deposit_form == "":
+    if not user.loan_subscription_added :
         messages.warning(
-            request, 'You need to fill your bank info to purchase products')
+            request, mark_safe('<p>Please fill up your bank details to continue <a href="/dashboard/apply_for_loan/1" style="color:pink;">Get Started</a></p>'))
         bank_details = False
-        print('inside if statement')
+
     else:
         bank_details = True
     print(user.bank_name, 'this is the user bank name')
@@ -218,3 +230,42 @@ class FinancingPortalAccessSoftware(TemplateView):
     def get_context_data(self, **kwargs):
         products = ProductPurchasedModel.objects.filter(user=self.request.user)
         return {"products": products}
+
+
+@login_required
+def apply_for_loan(request, step):
+    print(step)
+    context = {}
+    context['basic'] = ApplyLoanPlan.objects.filter(loan_type="basic").first()
+    context['standard'] = ApplyLoanPlan.objects.filter(
+        loan_type="standard").first()
+    context['premium'] = ApplyLoanPlan.objects.filter(
+        loan_type="premium").first()
+    if step == "1" or None:
+        d_form = LoanApplicationForm(instance=request.user)
+        context['form'] = d_form
+        print("step 1")
+        if request.method == "POST":
+            d_form = LoanApplicationForm(request.POST, instance=request.user)
+            print("p")
+            print(d_form.errors)
+            if d_form.is_valid():
+                print(d_form.cleaned_data)
+                d_form.save()
+                return redirect('dashboard:apply_for_loan', step=2)
+    elif step == "subscriptionbasic":
+        print('subscriptionbasic')
+        context['allplans'] = ApplyLoanPlan.objects.filter(loan_type="basic")
+
+
+    elif step == "subscriptionstandard":
+        print('subscriptionstandard')
+        context['allplans'] = ApplyLoanPlan.objects.filter(loan_type="standard")
+
+    elif step == "subscriptionpremium":
+        print('subscriptionpremium')
+        context['allplans'] = ApplyLoanPlan.objects.filter(loan_type="premium")
+
+    context['step'] = step
+
+    return render(request, "dashboard/applyforloan.html", context)

@@ -1,0 +1,163 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script src="https://js.stripe.com/v3/"></script>
+<!-- new -->
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<div class="nk-content">
+    <div class="container-fluid">
+        {% if step == "1" %}
+      {% if form %}
+      <div class="form-content">
+        <form action="{% url 'dashboard:apply_for_loan' step=1 %}" method="POST">
+          {% csrf_token %} {{ form | crispy }}
+          <br /><br />
+          <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+          
+        </form>
+      </div>
+      {% else %}
+      {% endif %}
+
+      {% elif step == "2" %}
+      {% include "dashboard/plans.html" %}
+      {% elif step == "basic" %}
+      <h3>You Have been Approved For Loan {{basic.aproved_loan_amount}}$</h3>
+      <button class="btn btn-primary" href="" onclick="Submit('{{basic.id}}')">
+Pay Origin Fee $ {{basic.origin_fee}}</button>
+      {% elif step == "standard" %}
+      <h3>You Have been Approved For Loan {{standard.aproved_loan_amount}}$</h3>
+      <button class="btn btn-primary" href="" onclick="Submit('{{standard.id}}')">
+        Pay Origin Fee $ {{standard.origin_fee}}</button>
+      {% elif step == "premium" %}
+      <h3>You Have been Approved For Loan {{premium.aproved_loan_amount}}$</h3>
+      <button class="btn btn-primary" href="" onclick="Submit('{{premium.id}}')">
+        Pay Origin Fee $ {{premium.origin_fee}}</button>
+        {% elif step == "subscriptionbasic"  %}
+        <h3>Basic Plan Subscription </h3> 
+        <div style="display:flex; padding:3rem;" class="row">
+          {% for x in allplans %}
+          <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+          <h3>{{x.price}}$ / {{x.duration}} months</h3>
+          <br/>
+          <button class="btn btn-primary" href="" onclick="SubscriptionSubmit('{{x.id}}')">
+            Add Subscription {{x.price}}$</button>
+          </div>
+        </div>
+      </div>
+            {% endfor %}
+  
+          </div>
+        {% elif step == "subscriptionstandard" %}
+<h3>Standard Subscription</h3>
+<div style="display:flex; padding:3rem;" class="row">
+  {% for x in allplans %}
+  <div class="col-md-6">
+    <div class="card">
+        <div class="card-body">
+  <h3>{{x.price}}$ / {{x.duration}} months</h3>
+  <br/>
+  <button class="btn btn-primary" href="" onclick="SubscriptionSubmit('{{x.id}}')">
+    Add Subscription {{x.price}}$</button>
+  </div>
+</div>
+</div>
+    {% endfor %}
+
+  </div>
+        {% elif step == "subscriptionpremium" %}
+        <h3>Premium Subscription</h3>
+        <div style="display:flex; padding:3rem;" class="row">
+          {% for x in allplans %}
+          <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+          <h3>{{x.price}}$ / {{x.duration}} months</h3>
+          <br/>
+          <button class="btn btn-primary" href="" onclick="SubscriptionSubmit('{{x.id}}')">
+            Add Subscription {{x.price}}$</button>
+          </div>
+        </div>
+      </div>
+            {% endfor %}
+  
+          </div>
+      {% endif %}
+    </div>
+</div>
+<script type="text/javascript">
+  function Submit(plan_id) {
+      console.log("pressed");
+    fetch("/config/")
+      .then((result) => {
+          console.log("results")
+        return result.json();
+      })
+      .then((data) => {
+        // Initialize Stripe.js
+        const stripe = Stripe(data.publicKey);
+        console.log(data.publicKey);
+        console.log('stripe is initialized')
+        // Event handler
+        fetch(`/create-checkout-session-loan-origin-fee/${plan_id}/`)
+          .then((result) => {
+            return result.json();
+          })
+          .then((data) => {
+            console.log(data,'the data came back from the /createcheckout/');
+            
+            // Redirect to Stripe Checkout
+            return stripe.redirectToCheckout({ sessionId: data.sessionId });
+          })
+          .then((res) => {
+              console.log(res)
+              
+          });
+      });
+  }
+  function SubscriptionSubmit(plan_id) {
+      console.log("pressed");
+    fetch("/config/")
+      .then((result) => {
+          console.log("results")
+        return result.json();
+      })
+      .then((data) => {
+        // Initialize Stripe.js
+        const stripe = Stripe(data.publicKey);
+        console.log(data.publicKey);
+        console.log('stripe is initialized')
+        // Event handler
+        fetch(`/create-checkout-session-subscription/${plan_id}/`)
+          .then((result) => {
+            return result.json();
+          })
+          .then((data) => {
+            console.log(data,'the data came back from the /createcheckout/');
+            
+            // Redirect to Stripe Checkout
+            return stripe.redirectToCheckout({ sessionId: data.sessionId });
+          })
+          .then((res) => {
+              console.log(res)
+              
+          });
+      });
+  }
+
+ 
+</script>
+{% endblock content %}
+
+
+

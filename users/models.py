@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
+from dashboard.models import ApplyLoanPlan
 from .managers import CustomUserManager
 
 
@@ -26,6 +28,14 @@ class CustomUser(AbstractUser):
     total_line_of_credit = models.DecimalField(
         max_digits=100, default=0, decimal_places=2, blank=True, null=True)
 
+    loan_subscription_type = models.ForeignKey(
+        ApplyLoanPlan, on_delete=models.CASCADE, blank=True, null=True)
+    loan_subscription_id = models.CharField(
+        max_length=250, blank=True, null=True)
+    loan_origin_paid = models.BooleanField(
+        default=False, blank=True, null=True)
+    loan_subscription_added =models.BooleanField(
+        default=False, blank=True, null=True)
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
