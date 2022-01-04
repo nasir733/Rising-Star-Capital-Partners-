@@ -108,6 +108,7 @@ def register(request):
         messages.info(request, 'You have been already registered')
         return redirect('dashboard:home')
     if request.method == 'POST':
+        print(request.POST)
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')

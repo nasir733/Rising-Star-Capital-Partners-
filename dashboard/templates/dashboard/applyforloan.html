@@ -4,6 +4,95 @@
 {% load mathfilters %}
 {% block content %}
 <style>
+.originfee{
+  align-items: center;
+  margin-top: 5rem;
+  justify-content: center;
+}
+.originfee .stage {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #65799b;
+}
+
+.originfee .btn {
+  margin-top: 2rem;
+  width: fit-content;
+  font-size: 15px;
+  height: 60px;
+  border: none;
+  outline: none;
+  background: #c38b8b;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.originfee .btn::before {
+  position: absolute;
+  content: "";
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(
+    124deg,
+    #ff2400,
+    #e81d1d,
+    #e8b71d,
+    #e3e81d,
+    #1de840,
+    #1ddde8,
+    #2b1de8,
+    #dd00f3,
+    #dd00f3
+  );
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  animation: move 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.originfee .btn:hover::before {
+  opacity: 1;
+}
+
+.originfee .btn::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #555273;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 
 .subscriptionplan .container {
   width: 100%;
@@ -195,19 +284,37 @@ label {
 
       {% elif step == "2" %}
       {% include "dashboard/plans.html" %}
-      {% elif step == "basic" %}
-      <h3>You Have been Approved For Loan {{basic.aproved_loan_amount}}$</h3>
-      <button class="btn btn-primary" href="" onclick="Submit('{{basic.id}}')">
-Pay Origin Fee $ {{basic.origin_fee}}</button>
-      {% elif step == "standard" %}
-      <h3>You Have been Approved For Loan {{standard.aproved_loan_amount}}$</h3>
-      <button class="btn btn-primary" href="" onclick="Submit('{{standard.id}}')">
-        Pay Origin Fee $ {{standard.origin_fee}}</button>
-      {% elif step == "premium" %}
-      <h3>You Have been Approved For Loan {{premium.aproved_loan_amount}}$</h3>
-      <button class="btn btn-primary" href="" onclick="Submit('{{premium.id}}')">
-        Pay Origin Fee $ {{premium.origin_fee}}</button>
 
+      {% elif step == "basic" %}
+      <center>
+      <div class="originfee stage">
+      <h3>You Have been Approved For Loan {{basic.aproved_loan_amount}}$</h3>
+
+      <button class="btn" href="" onclick="Submit('{{basic.id}}')">
+Pay Origin Fee $ {{basic.origin_fee}}</button>
+      </div>
+      </center>
+      {% elif step == "standard" %}
+
+      <center>
+        <div class="originfee stage">
+  
+      <h3>You Have been Approved For Loan {{standard.aproved_loan_amount}}$</h3>
+      <button class="btn" href="" onclick="Submit('{{standard.id}}')">
+        Pay Origin Fee $ {{standard.origin_fee}}</button>
+
+      </div>
+    </center>
+      {% elif step == "premium" %}
+      <center>
+        <div class="originfee stage">
+  
+
+      <h3>You Have been Approved For Loan {{premium.aproved_loan_amount}}$</h3>
+      <button class="btn" href="" onclick="Submit('{{premium.id}}')">
+        Pay Origin Fee $ {{premium.origin_fee}}</button>
+      </div>
+    </center>
 
 
 
@@ -252,41 +359,80 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
         </div>
 
   
-          </div>
         {% elif step == "subscriptionstandard" %}
-<h3>Standard Subscription</h3>
-<div style="display:flex; padding:3rem;" class="row">
-  {% for x in allplans %}
-  <div class="col-md-6">
-    <div class="card">
-        <div class="card-body">
-  <h3>{{x.price}}$ / {{x.duration}} months</h3>
-  <br/>
-  <button class="btn btn-primary" href="" onclick="SubscriptionSubmit('{{x.id}}')">
-    Add Subscription {{x.price}}$</button>
-  </div>
-</div>
-</div>
-    {% endfor %}
 
-  </div>
-        {% elif step == "subscriptionpremium" %}
-        <h3>Premium Subscription</h3>
-        <div style="display:flex; padding:3rem;" class="row">
-          {% for x in allplans %}
-          <div class="col-md-6">
-            <div class="card">
-                <div class="card-body">
-          <h3>{{x.price}}$ / {{x.duration}} months</h3>
-          <br/>
-          <button class="btn btn-primary" href="" onclick="SubscriptionSubmit('{{x.id}}')">
-            Add Subscription {{x.price}}$</button>
-          </div>
-        </div>
+<div class="subscriptionplan">
+  <div class="container">
+    <div class="top">
+      <h1>Standard Subscription</h1>
+      <!-- <div class="toggle-btn">
+        <span style="margin: 0.8em;">Annually</span>
+        <label class="switch">
+          <input type="checkbox" id="checbox" onclick="check()" ; />
+          <span class="slider round"></span>
+        </label>
+        <span style="margin: 0.8em;">Monthly</span></div> -->
+    </div>
+
+    <div class="package-container">
+      {% for x in allplans %}
+      <div class="packages">
+        <br/>
+        <h2 class="text1">&dollar;{{x.price}}</h2>
+        <h1>{{x.duration}} months</h1>
+        
+        <ul class="list">
+          <li class="first">{{x.price | div:x.duration |floatformat:0}}$ /month</li>
+         
+        </ul>
+        <br/>
+        <button href="#" class="button button1" onclick="SubscriptionSubmit('{{x.id}}')">Add Subscription</button>
       </div>
-            {% endfor %}
+      {% endfor %}
+
+   
+    </div>
+  </div>
+
+
+</div>
+        {% elif step == "subscriptionpremium" %}
+
+        <div class="subscriptionplan">
+          <div class="container">
+            <div class="top">
+              <h1>Premium Subscription</h1>
+              <!-- <div class="toggle-btn">
+                <span style="margin: 0.8em;">Annually</span>
+                <label class="switch">
+                  <input type="checkbox" id="checbox" onclick="check()" ; />
+                  <span class="slider round"></span>
+                </label>
+                <span style="margin: 0.8em;">Monthly</span></div> -->
+            </div>
+        
+            <div class="package-container">
+              {% for x in allplans %}
+              <div class="packages">
+                <br/>
+                <h2 class="text1">&dollar;{{x.price}}</h2>
+                <h1>{{x.duration}} months</h1>
+                
+                <ul class="list">
+                  <li class="first">{{x.price | div:x.duration |floatformat:0}}$ /month</li>
+                 
+                </ul>
+                <br/>
+                <button href="#" class="button button1" onclick="SubscriptionSubmit('{{x.id}}')">Add Subscription</button>
+              </div>
+              {% endfor %}
   
+           
+            </div>
           </div>
+        
+        
+        </div>
       {% endif %}
     </div>
 </div>
