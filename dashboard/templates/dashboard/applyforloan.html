@@ -288,10 +288,10 @@ label {
       {% elif step == "basic" %}
       <center>
       <div class="originfee stage">
-      <h3>You Have been Approved For Loan {{basic.aproved_loan_amount}}$</h3>
+      <h3>You Have been Approved For Loan ${{basic.aproved_loan_amount}}</h3>
 
       <button class="btn" href="" onclick="Submit('{{basic.id}}')">
-Pay Origin Fee $ {{basic.origin_fee}}</button>
+Pay Origin Fee ${{basic.origin_fee}}</button>
       </div>
       </center>
       {% elif step == "standard" %}
@@ -299,9 +299,9 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
       <center>
         <div class="originfee stage">
   
-      <h3>You Have been Approved For Loan {{standard.aproved_loan_amount}}$</h3>
+      <h3>You Have been Approved For Loan ${{standard.aproved_loan_amount}}</h3>
       <button class="btn" href="" onclick="Submit('{{standard.id}}')">
-        Pay Origin Fee $ {{standard.origin_fee}}</button>
+        Pay Origin Fee ${{standard.origin_fee}}</button>
 
       </div>
     </center>
@@ -310,9 +310,9 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
         <div class="originfee stage">
   
 
-      <h3>You Have been Approved For Loan {{premium.aproved_loan_amount}}$</h3>
+      <h3>You Have been Approved For Loan ${{premium.aproved_loan_amount}}</h3>
       <button class="btn" href="" onclick="Submit('{{premium.id}}')">
-        Pay Origin Fee $ {{premium.origin_fee}}</button>
+        Pay Origin Fee ${{premium.origin_fee}}</button>
       </div>
     </center>
 
@@ -340,10 +340,10 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
               <div class="packages">
                 <br/>
                 <h2 class="text1">&dollar;{{x.price}}</h2>
-                <h1>{{x.duration}} months</h1>
+                <h1>{{x.duration}} Months</h1>
                 
                 <ul class="list">
-                  <li class="first">{{x.price | div:x.duration |floatformat:0}}$ /month</li>
+                  <li class="first">${{x.price | div:x.duration |floatformat:0}} /Month</li>
                  
                 </ul>
                 <br/>
@@ -379,10 +379,10 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
       <div class="packages">
         <br/>
         <h2 class="text1">&dollar;{{x.price}}</h2>
-        <h1>{{x.duration}} months</h1>
+        <h1>{{x.duration}} Months</h1>
         
         <ul class="list">
-          <li class="first">{{x.price | div:x.duration |floatformat:0}}$ /month</li>
+          <li class="first">${{x.price | div:x.duration |floatformat:0}} /Month</li>
          
         </ul>
         <br/>
@@ -416,10 +416,10 @@ Pay Origin Fee $ {{basic.origin_fee}}</button>
               <div class="packages">
                 <br/>
                 <h2 class="text1">&dollar;{{x.price}}</h2>
-                <h1>{{x.duration}} months</h1>
+                <h1>{{x.duration}} Months</h1>
                 
                 <ul class="list">
-                  <li class="first">{{x.price | div:x.duration |floatformat:0}}$ /month</li>
+                  <li class="first">${{x.price | div:x.duration |floatformat:0}} /Month</li>
                  
                 </ul>
                 <br/>
